@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <glib.h>
+#include <gio/gio.h>
+
 gboolean incoming_callback(GSocketService *service,
                            GSocketConnection *connection,
                            GObject *source_object,
