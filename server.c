@@ -9,9 +9,7 @@ gboolean incoming_callback(GSocketService *service,
 {
         g_print("Received Connection from Client\n");
 
-        GInputStream *istream = NULL;
-        GOutputStream *ostream = NULL;
-        char message[1024+1];
+
         GError *error = NULL;
         gsize read_count = 0;
         gboolean read_finished = FALSE;
@@ -19,13 +17,18 @@ gboolean incoming_callback(GSocketService *service,
         ////////////////////////////////////////////////////////////////////////////////////////
         //   1. create input stream
         ////////////////////////////////////////////////////////////////////////////////////////
+        GInputStream *istream = NULL;
+        GOutputStream *ostream = NULL;
+        char message[1024+1];
+
         istream = g_io_stream_get_input_stream(G_IO_STREAM(connection));
         ostream = g_io_stream_get_output_stream(G_IO_STREAM(connection));
 
         ////////////////////////////////////////////////////////////////////////////////////////
         //   2. receive and processing
         ////////////////////////////////////////////////////////////////////////////////////////
-                while ( TRUE ) {
+
+            while ( TRUE ) {
 
                 // read input stream
                 read_count = g_input_stream_read(istream, message, 1024, NULL, &error);
