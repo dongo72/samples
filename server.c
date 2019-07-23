@@ -55,8 +55,12 @@ gboolean incoming_callback(GSocketService *service,
         }
 
         g_print("Message: connection terminated\n");
+  
+        g_main_loop_quit(loop);
         return FALSE;
 }
+
+GMainLoop *loop = NULL;
 
 int main(int argc, char **argv)
 {
@@ -68,9 +72,7 @@ int main(int argc, char **argv)
         ////////////////////////////////////////////////////////////////////////////////////////
 
         // non threaded socket service
-        /*
-        GSocketService* service = g_socket_service_new();
-        */
+        // GSocketService* service = g_socket_service_new();
 
         // threaded socket service
         GSocketService *service = g_threaded_socket_service_new(10);
@@ -98,7 +100,7 @@ int main(int argc, char **argv)
                                      &error);
         */
         
-                // connect to the port
+        // helper function for g_socket_listener_add_address
         g_socket_listener_add_inet_port( G_SOCKET_LISTENER(service),
                         1500,   // port
                         NULL,
@@ -148,7 +150,7 @@ int main(int argc, char **argv)
 
         // enter main loop
         g_print("Waiting for client\n");
-        GMainLoop *loop = g_main_loop_new(NULL, FALSE);
+        loop = g_main_loop_new(NULL, FALSE);
         g_main_loop_run(loop);
 
         ////////////////////////////////////////////////////////////////////////////////////////
@@ -157,6 +159,9 @@ int main(int argc, char **argv)
 
         // stop service when out of the main loop
         g_socket_service_stop(service);
+  
+        // close listener
+        g_socker_listener_close(G_SOCKET_LISTENER(service))
 
         return 0;
 
