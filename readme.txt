@@ -1,3 +1,11 @@
+// 화면에서 입력받을 때
+while ( fgets(buffer, sizeof(buffer), stdin ) != NULL ) {
+  if ( sscanf(buffer, "%s", buffer) == EOF ) break;
+
+}
+
+///
+
 sql fiddle
 
 // threaded socket
