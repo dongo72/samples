@@ -1,6 +1,12 @@
-// 화면에서 입력받을 때
+// 화면에서 입력받을 때, 빈입력이면 종료
 while ( fgets(buffer, sizeof(buffer), stdin ) != NULL ) {
-  if ( sscanf(buffer, "%s", buffer) == EOF ) break;
+  if ( sscanf(buffer, "%s", buffer) == EOF ) break; // 
+
+}
+
+// 파일에서 입력받을 때, 파일 끝에서 종료
+while ( fgets(buffer, sizeof(buffer), fp ) != NULL ) {
+  if ( sscanf(buffer, "%s", buffer) == EOF ) continue; // empty line
 
 }
 
