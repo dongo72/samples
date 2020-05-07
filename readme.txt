@@ -1,12 +1,13 @@
 
 1. 입력 루프를 돌면서 개행문자 없는 스트링으로 입력 획득
-// 화면에서 입력받을 때, 빈입력이면 종료
+
+// 화면에서 입력받을 때(공백도 입력으로), 빈입력이면 종료,
 while ( fgets(buffer, sizeof(buffer), stdin ) != NULL ) {
   if ( sscanf(buffer, "%[^\n]s", buffer) == EOF ) break; // 
 
 }
 
-// 파일에서 입력받을 때, 빈라인을 만나면 아무것도 하지 않고, 파일 끝에서 종료
+// 파일에서 입력받을 때(공백도 입력으로), 빈라인을 만나면 아무것도 하지 않고, 파일 끝에서 종료
 while ( fgets(buffer, sizeof(buffer), fp ) != NULL ) {
   if ( sscanf(buffer, "%[^\n]s", buffer) == EOF ) continue; // empty line
 
