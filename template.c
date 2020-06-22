@@ -3,6 +3,37 @@
 
 #define MAX_BUFFER_SIZE 128
 
+int compare_dist(const void* a, const void* b)
+{
+	Bus* b1 = *(Bus**) a;
+	Bus* b2 = *(Bus**) b;
+
+	if (b1->dist < b2->dist) return -1;
+	else if (b1->dist > b2->dist ) return 1;
+	else return 0;
+}
+
+int compare_name(const void* a, const void* b)
+{
+	Bus* b1 = *(Bus**) a;
+	Bus* b2 = *(Bus**) b;
+
+	if (strcmp(b1->name, b2->name) < 0 ) return -1;
+	else if (strcmp(b1->name, b2->name) > 0 ) return 1;
+	else return 0;
+
+}
+
+void order_bus_by_dist(Road* r)
+{
+	qsort(r->b, r->num_bus, sizeof(Bus*), compare_dist);
+}
+
+void order_bus_by_name(Road* r)
+{
+	qsort(r->b, r->num_bus, sizeof(Bus*), compare_name);
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //
