@@ -7,15 +7,19 @@
 5. zshrc 변경
 6. Homebrew 설치(brew install cask 할지 말지는 옵션)
 
-1. Xcode 설치 (Command Line Tool은 brew 설치시 같이 설치, Additional Tool은 설치 고민)
-2. eclipse 설치 (for java, for C/C++)
-3. vscode 설치
-3. Java 설치 (Oracle?, OpenJDK?)
+## 개발툴 Download 설치
+1. Xcode 설치(appstore) (Command Line Tool은 brew 설치시 같이 설치, Additional Tool은 설치 고민)
+2. vscode 설치(application folder copy)
+3. android studio (application folde copy)
+4. eclipse 설치 (eclipse installer로 환경별 설치, JEE, C/C++, Javascript)
+
+# 유틸리티 Download 설치
+4. docker 설치(application folder copy)
+5. magnet 설치(appstore)
+6. trello 설치(appstore) - to-do: ddongo92@gmail.com/일반
+7. Office (Microsoft Home Use Program 또는 OFFICE365?)
+
+# 개발언어 homebrew 설치
+3. Java 설치 (OpenJDK)
 4. node 설치
 5. go 설치
-6. docker 설치
-
-1. magnet 설치
-2. trello - to-do: ddongo92@gmail.com/일반
-3. Office (Microsoft Home Use Program 또는 OFFICE365?)
-4. 
